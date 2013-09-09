@@ -4,7 +4,7 @@
   <title><![CDATA[xiaok's road]]></title>
   <link href="http://xiaokfc2012.github.io/atom.xml" rel="self"/>
   <link href="http://xiaokfc2012.github.io/"/>
-  <updated>2013-09-06T18:33:39+08:00</updated>
+  <updated>2013-09-10T00:36:18+08:00</updated>
   <id>http://xiaokfc2012.github.io/</id>
   <author>
     <name><![CDATA[xiaok]]></name>
@@ -12,5 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mac上基于GitHub搭建Octopress]]></title>
+    <link href="http://xiaokfc2012.github.io/blog/2013/09/10/mac-octopress/"/>
+    <updated>2013-09-10T00:21:00+08:00</updated>
+    <id>http://xiaokfc2012.github.io/blog/2013/09/10/mac-octopress</id>
+    <content type="html"><![CDATA[<h1>Mac上基于Github搭建Octopress</h1>
+
+<p>折腾了几天，终于顺利的完成了Octopress博客的搭建，下面回顾总结一下整个搭建的过程，希望能给大家一点参考。</p>
+
+<h3>概述</h3>
+
+<p>Octopress是一款基于<a href="http://jekyllrb.com/">Jekyll</a>的静态站点生成系统，基于Ruby实现，尽管如此，你并不需要了解Ruby语言，Octopress的博客内容通过md语法书写，入门很简单，在Mac下推荐使用<a href="http://mouapp.com/">Mou</a>或在线md编译器<a href="http://mahua.jser.me/">http://mahua.jser.me/</a> 。
+Octopress通常会部署在GitHub上，因为你还需要了解一些简单的Git命令。</p>
+
+<h3>准备</h3>
+
+<ul>
+<li><strong>Git</strong> 分布式版本控制工具</li>
+<li><strong>Rvm</strong> ruby版本管理</li>
+<li><strong>Ruby</strong> Octopress依赖Ruby语言环境</li>
+<li><strong>RubyGems</strong> Ruby程序包管理器</li>
+<li><strong>Octopress</strong> 一套使用 Ruby 语言开发的博客网站框架</li>
+</ul>
+
+
+<h3>安装</h3>
+
+<p>1.Git
+地址：<a href="https://www.kernel.org/pub/software/scm/git/">https://www.kernel.org/pub/software/scm/git/</a></p>
+
+<p>直接下载源码编译安装，我选择的是最新的1.8.4版的，如果mac下提示没有安装gcc，可以到下载安装Command Line Tools即可。</p>
+
+<p>2.Rvm
+地址：<a href="https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer">https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer</a></p>
+
+<p>直接下载保存执行,添加到环境变量即可。</p>
+
+<p>3.Ruby
+mac一般自带1.8.7版本的Ruby，但是Octopress要求Ruby使用1.9.3或以上版本，安装完Rvm后，可以很方便的完成Ruby的升级。</p>
+
+<pre><code>$ rvm install 1.9.3 &amp;&amp; rvm use 1.9.3
+</code></pre>
+
+<p>4.Octopress
+直接通过git clone git://github.com/imathis/octopress.git  octopress获取，需要使用Gem安装Octopress的依赖项。
+需要更换gem的更新源，否则速度极慢，使用国内taobao的镜像速度会快很多。</p>
+
+<pre><code>$gem sources -a http://ruby.taobao.org/
+$gem sources -r http://rubygems.org/
+$gem sources -l
+</code></pre>
+
+<p>同时需要修发Octopress目录下的Gemfile文件，将第一行source对应的url改为<a href="http://ruby.taobao.org/">http://ruby.taobao.org/</a> 即可。
+进入Octopress目录下，输入下列指令进行依赖项的安装：</p>
+
+<pre><code>$gem install bundler
+$bundle install
+$rake install 安装默认主题
+</code></pre>
+
+<p>如果安装默认主题时出现rake aborted!&hellip; Using bundle exec may solve this.  那就照着提示说的，使用bundle exec rake install即可。</p>
+
+<h2>将Octopress发布到Github上</h2>
+
+<ol>
+<li>创建名为username.github.com的repository。</li>
+<li>$rake setup_github_page 配置github项目地址</li>
+<li>输入新建的repository的地址，去掉最后的.git。</li>
+<li>设置ssh,执行ssh-keygen -t rsa -C &ldquo;your_email＠youremail.com&rdquo;,打开生成的id_rsa.pub文件,将内容添加到GitHub中。
+Account-settings &ndash;> SSH Keys &ndash;> Add SSH key 添加对应的key即可。</li>
+<li>测试ssh $ssh -T git@github.com，如果成功，将显示Hi xxx! You&rsquo;ve successfully authenticated&hellip;</li>
+<li><p>设置Git信息</p>
+
+<p> $git config &mdash;global user.name &ldquo;xxx&rdquo;;
+ $git config &mdash;global user.email &ldquo;<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#120;&#x78;&#x78;&#64;&#120;&#120;&#x78;&#46;&#x63;&#x6f;&#x6d;">&#x78;&#120;&#120;&#64;&#120;&#x78;&#x78;&#x2e;&#99;&#x6f;&#x6d;</a>&rdquo;;</p></li>
+</ol>
+
+
+<h2>Octopress基本使用</h2>
+
+<ul>
+<li><strong>rake generate</strong> 重新生成静态页面</li>
+<li><strong>rake preview</strong> 可在浏览器localhost:4000进行博客的预览</li>
+<li><strong>rake deploy</strong> 将本地数据部署到github上
+这样，就完成了内容的发布，可以直接使用 <a href="http://username.github.com">http://username.github.com</a> 进行访问。</li>
+</ul>
+
+
+<h2>中文显示问题</h2>
+
+<ul>
+<li>修改LANG为en.UIF-8</li>
+<li>含中文的文件存为UTF8无BOM编码</li>
+<li>将/usr/local/rvm/rubies/ruby-1.9.3-p448/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/convertible.rb文件中对应行修改为
+self.content = File.read(File.join(base,name), :encoding => &lsquo;utf-8&rsquo;)  //根据具体文件路径修改</li>
+</ul>
+
+
+<h2>博客配置修改</h2>
+
+<p>主要修改Octopress目录下的_config.yml文件</p>
+
+<h2>自定义域名</h2>
+
+<p>在source目录下建立名为CNAME的文件，文件内容为自己的域名</p>
+
+<p>域名管理新添A记录 域名 &ndash;> 207.97.227.245即可。</p>
+
+<h2>总结</h2>
+
+<p>写blog有很多种平台和方式，像博客园,csdn都是很好的博客平台，如果想搭建属于自己的博客,wordpress是不错的选择，如果能折腾，可以试试Octopress。最后，感谢snail大神的友情帮助。</p>
+
+<h2>接下来</h2>
+
+<ol>
+<li>定制Octoprss</li>
+<li>博客SEO</li>
+</ol>
+
+
+<p><strong>切记，我永远是一只井底的蜗牛。</strong></p>
+]]></content>
+  </entry>
   
 </feed>
