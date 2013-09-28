@@ -4,7 +4,7 @@
   <title><![CDATA[xiaok's road]]></title>
   <link href="http://xiaokfc2012.github.io/atom.xml" rel="self"/>
   <link href="http://xiaokfc2012.github.io/"/>
-  <updated>2013-09-10T00:40:30+08:00</updated>
+  <updated>2013-09-28T17:58:02+08:00</updated>
   <id>http://xiaokfc2012.github.io/</id>
   <author>
     <name><![CDATA[xiaok]]></name>
@@ -85,7 +85,7 @@ Account-settings &ndash;> SSH Keys &ndash;> Add SSH key 添加对应的key即可
 <li><p>设置Git信息</p>
 
 <p> $git config &mdash;global user.name &ldquo;xxx&rdquo;;
- $git config &mdash;global user.email &ldquo;<a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#120;&#x78;&#x78;&#x40;&#x78;&#120;&#x78;&#46;&#99;&#111;&#109;">&#x78;&#120;&#120;&#x40;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#109;</a>&rdquo;;</p></li>
+ $git config &mdash;global user.email &ldquo;<a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x78;&#120;&#120;&#x40;&#x78;&#x78;&#x78;&#x2e;&#x63;&#111;&#109;">&#x78;&#120;&#120;&#64;&#x78;&#120;&#x78;&#46;&#99;&#111;&#x6d;</a>&rdquo;;</p></li>
 </ol>
 
 
