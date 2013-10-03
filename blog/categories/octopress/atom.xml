@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | xiaok's road]]></title>
   <link href="http://xiaokfc2012.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://xiaokfc2012.github.io/"/>
-  <updated>2013-10-03T08:43:47+08:00</updated>
+  <updated>2013-10-03T23:37:18+08:00</updated>
   <id>http://xiaokfc2012.github.io/</id>
   <author>
     <name><![CDATA[xiaok]]></name>
@@ -85,7 +85,7 @@ Account-settings &ndash;> SSH Keys &ndash;> Add SSH key 添加对应的key即可
 <li><p>设置Git信息</p>
 
 <p> $git config &mdash;global user.name &ldquo;xxx&rdquo;;
- $git config &mdash;global user.email &ldquo;<a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#120;&#120;&#120;&#x40;&#120;&#x78;&#x78;&#46;&#99;&#111;&#109;">&#120;&#120;&#x78;&#64;&#120;&#120;&#120;&#46;&#x63;&#x6f;&#109;</a>&rdquo;;</p></li>
+ $git config &mdash;global user.email &ldquo;<a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#120;&#x78;&#120;&#x40;&#x78;&#120;&#120;&#46;&#x63;&#x6f;&#109;">&#x78;&#120;&#x78;&#64;&#x78;&#120;&#x78;&#x2e;&#x63;&#x6f;&#109;</a>&rdquo;;</p></li>
 </ol>
 
 
